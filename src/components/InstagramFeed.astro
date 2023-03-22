@@ -1,0 +1,49 @@
+---
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const fetchInstagramPosts = async () => {
+  try {
+    const response = await axios.get('/.netlify/functions/getInstagramPosts');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching Instagram posts:', error);
+    return [];
+  }
+};
+
+const InstagramFeed = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetchInstagramPosts();
+      setPosts(data);
+    })();
+  }, []);
+
+  return (
+    <section class="bg-gray-100 py-12">
+      <div class="container mx-auto">
+        <h2 class="text-center text-3xl mb-8">Instagram Feed</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {posts.slice(0, 4).map((post) => (
+            <div
+              key={post.id}
+              class="rounded overflow-hidden shadow-md bg-white">
+              <img
+                src={post.media_url}
+                alt={post.caption}
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <p class="text-gray-700">{post.caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+---

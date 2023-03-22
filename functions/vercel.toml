@@ -1,0 +1,6 @@
+# vercel.toml
+
+[build]
+  command = "pnpm run build"
+  functions = "functions"
+  publish = "dist"
