@@ -1,0 +1,69 @@
+<!-- Navbar Component -->
+<header class="fixed w-full z-50">
+  <nav class="bg-transparent p-4">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-xl font-bold">
+        <a href="/" class="text-white">GERMAN GAMBOART</a>
+      </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-4">
+        <a href="/about" class="text-white">About</a>
+        <a href="/portfolio" class="text-white">Portfolio</a>
+        <a href="/contact" class="text-white">Contact</a>
+      </div>
+      <!-- Hamburger Menu -->
+      <button id="hamburger" class="md:hidden focus:outline-none">
+        <span class="w-6 h-1 bg-white block mb-1"></span>
+        <span class="w-6 h-1 bg-white block mb-1"></span>
+        <span class="w-6 h-1 bg-white block"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Mobile Navigation -->
+  <div
+    id="mobile-menu"
+    class="hidden fixed inset-0 bg-gray-800 opacity-95 z-40">
+    <div class="relative h-full">
+      <button
+        id="close-btn"
+        class="absolute top-4 right-4 text-white text-5xl focus:outline-none"
+        >&times;</button
+      >
+      <div class="flex flex-col items-center justify-center h-full space-y-4">
+        <a href="/about" class="text-white text-xl">About</a>
+        <a href="/portfolio" class="text-white text-xl">Portfolio</a>
+        <a href="/contact" class="text-white text-xl">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+  // Toggle mobile menu
+  function toggleMobileMenu() {
+    mobileMenu.classList.toggle('hidden');
+  }
+
+  // Event listeners
+  hamburger.addEventListener('click', toggleMobileMenu);
+  closeBtn.addEventListener('click', toggleMobileMenu);
+
+  // Close the mobile menu when clicking outside the menu links
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      toggleMobileMenu();
+    }
+  });
+
+  // Close the mobile menu when pressing the Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      toggleMobileMenu();
+    }
+  });
+</script>
