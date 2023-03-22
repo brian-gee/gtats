@@ -8,9 +8,9 @@
       </div>
       <!-- Desktop Navigation -->
       <div class="hidden md:flex space-x-4">
-        <a href="/about" class="text-white">Home</a>
-        <a href="/portfolio" class="text-white">Form</a>
-        <a href="/contact" class="text-white">About</a>
+        <a href="/" class="text-white">Home</a>
+        <a href="/" class="text-white">Form</a>
+        <a href="/" class="text-white">About</a>
       </div>
       <!-- Hamburger Menu -->
       <button id="hamburger" class="md:hidden focus:outline-none">
@@ -31,38 +31,51 @@
         >&times;</button
       >
       <div class="flex flex-col items-center justify-center h-full space-y-12">
-        <a href="/about" class="text-white text-7xl">Home</a>
-        <a href="/portfolio" class="text-white text-7xl">Form</a>
-        <a href="/contact" class="text-white text-7xl">About</a>
+        <a href="/" class="text-white text-7xl">Home</a>
+        <a href="/" class="text-white text-7xl">Form</a>
+        <a href="/" class="text-white text-7xl">About</a>
       </div>
     </div>
   </div>
 </header>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('close-btn');
+  const hamburger: HTMLElement | null = document.getElementById('hamburger');
+  const mobileMenu: HTMLElement | null = document.getElementById('mobile-menu');
+  const closeBtn: HTMLElement | null = document.getElementById('close-btn');
 
   // Toggle mobile menu
-  function toggleMobileMenu() {
-    mobileMenu.classList.toggle('hidden');
+  function toggleMobileMenu(): void {
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('hidden');
+    }
   }
 
   // Event listeners
-  hamburger.addEventListener('click', toggleMobileMenu);
-  closeBtn.addEventListener('click', toggleMobileMenu);
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMobileMenu);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', toggleMobileMenu);
+  }
 
   // Close the mobile menu when clicking outside the menu links
-  mobileMenu.addEventListener('click', (e) => {
-    if (e.target === mobileMenu) {
-      toggleMobileMenu();
-    }
-  });
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e: MouseEvent) => {
+      if (e.target === mobileMenu) {
+        toggleMobileMenu();
+      }
+    });
+  }
 
   // Close the mobile menu when pressing the Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (
+      e.key === 'Escape' &&
+      mobileMenu &&
+      !mobileMenu.classList.contains('hidden')
+    ) {
       toggleMobileMenu();
     }
   });
