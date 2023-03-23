@@ -1,0 +1,52 @@
+---
+import axios from 'axios';
+
+const INSTAGRAM_ACCESS_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+
+const INSTAGRAM_ENDPOINT = `https://graph.instagram.com/me/media?fields=id,caption,media_url,thumbnail_url,media_type,permalink&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
+
+async function fetchInstagramPosts() {
+  try {
+    const {
+      data: { data: posts },
+    } = await axios.get(INSTAGRAM_ENDPOINT);
+    return posts;
+  } catch (error) {
+    console.error('Failed to fetch Instagram posts:', error);
+    return [];
+  }
+}
+
+const posts = await fetchInstagramPosts();
+---
+
+<template>
+  <div class="grid grid-cols-3 gap-4">
+    {
+      posts.map((post) => (
+        <a
+          href={post.permalink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full h-64 overflow-hidden relative">
+          {post.media_type === 'IMAGE' ||
+          post.media_type === 'CAROUSEL_ALBUM' ? (
+            <img
+              src={post.media_url}
+              alt={post.caption}
+              class="w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              src={post.media_url}
+              alt={post.caption}
+              class="w-full h-full object-cover"
+              muted
+              loop
+            />
+          )}
+        </a>
+      ))
+    }
+  </div>
+</template>
