@@ -80,7 +80,7 @@
 
   if (navbar !== null) {
     window.onscroll = function () {
-      if (window.pageYOffset === 0) {
+      if (window.pageYOffset < 25) {
         navbar.style.top = '0';
       } else {
         navbar.style.top = '-50px';
