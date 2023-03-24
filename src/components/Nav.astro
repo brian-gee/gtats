@@ -6,10 +6,10 @@
       <div class="text-lg">
         <a href="/" class="text-white">GERMAN GAMBOART</a>
       </div>
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation Bar -->
       <div class="hidden md:flex space-x-4 text-white">
         <a href="/">Home</a>
-        <a href="/">Form</a>
+        <a href="/form">Form</a>
         <a href="/about">About</a>
       </div>
       <!-- Hamburger Menu -->
@@ -20,7 +20,7 @@
       </button>
     </div>
   </nav>
-  <!-- Mobile Navigation -->
+  <!-- Mobile Navigation Bar -->
   <div
     id="mobile-menu"
     class="hidden fixed inset-0 bg-zinc-800 opacity-98 z-40">
@@ -33,7 +33,7 @@
       <div
         class="flex flex-col items-center justify-center h-full space-y-12 text-white text-6xl">
         <a href="/">Home</a>
-        <a href="/">Form</a>
+        <a href="/form">Form</a>
         <a href="/about">About</a>
       </div>
     </div>
@@ -78,14 +78,13 @@
     }
   });
 
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById('navbar').style.top = '0';
-    } else {
-      document.getElementById('navbar').style.top = '-50px';
-    }
-    prevScrollpos = currentScrollPos;
-  };
+  if (navbar !== null) {
+    window.onscroll = function () {
+      if (window.pageYOffset === 0) {
+        navbar.style.top = '0';
+      } else {
+        navbar.style.top = '-50px';
+      }
+    };
+  }
 </script>
