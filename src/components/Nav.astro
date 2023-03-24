@@ -1,6 +1,6 @@
 <!-- Navbar Component -->
-<header class="fixed w-full z-50">
-  <nav id="navbar" class="p-6">
+<header id="navbar" class="fixed w-full z-50">
+  <nav class="p-6">
     <div class="flex justify-between items-center">
       <!-- Logo -->
       <div class="text-lg">
@@ -41,19 +41,17 @@
 </header>
 
 <script>
-  const hamburger: HTMLElement | null = document.getElementById('hamburger');
-  const mobileMenu: HTMLElement | null = document.getElementById('mobile-menu');
-  const closeBtn: HTMLElement | null = document.getElementById('close-btn');
-  const navbar: HTMLElement | null = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+  const navbar = document.getElementById('navbar');
 
-  // Toggle mobile menu
-  function toggleMobileMenu(): void {
+  function toggleMobileMenu() {
     if (mobileMenu) {
       mobileMenu.classList.toggle('hidden');
     }
   }
 
-  // Event listeners
   if (hamburger) {
     hamburger.addEventListener('click', toggleMobileMenu);
   }
@@ -62,17 +60,15 @@
     closeBtn.addEventListener('click', toggleMobileMenu);
   }
 
-  // Close the mobile menu when clicking outside the menu links
   if (mobileMenu) {
-    mobileMenu.addEventListener('click', (e: MouseEvent) => {
+    mobileMenu.addEventListener('click', (e) => {
       if (e.target === mobileMenu) {
         toggleMobileMenu();
       }
     });
   }
 
-  // Close the mobile menu when pressing the Escape key
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
+  document.addEventListener('keydown', (e) => {
     if (
       e.key === 'Escape' &&
       mobileMenu &&
@@ -82,13 +78,13 @@
     }
   });
 
-  let prevScrollpos = window.pageYOffset;
+  var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
-    let currentScrollPos = window.pageYOffset;
+    var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-      document.getElementById(navbar).classList.remove('hidden');
+      document.getElementById('navbar').style.top = '0';
     } else {
-      document.getElementById(navbar).classList.add('hidden');
+      document.getElementById('navbar').style.top = '-50px';
     }
     prevScrollpos = currentScrollPos;
   };
