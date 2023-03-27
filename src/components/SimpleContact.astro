@@ -1,0 +1,68 @@
+<div class="mt-20 sm:mt-0">
+  <div>
+    <div class="flex justify-center text-2xl font-bold uppercase">
+      <h1>Appointment Inquiry</h1>
+    </div>
+    <div class="flex justify-center">
+      <span class="w-80 h-0.5 bg-white block mt-1"></span>
+    </div>
+  </div>
+  <!-- component -->
+  <div class="flex items-center justify-center p-12">
+    <div class="mx-auto w-full max-w-[550px]">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="mb-5">
+          <label for="full_name" class="mb-3 block text-base font-medium">
+            Full Name
+          </label>
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-indigo-500 focus:shadow-md"
+          />
+        </div>
+        <div class="mb-5">
+          <label for="email" class="mb-3 block text-base font-medium">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@domain.com"
+            class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-indigo-500 focus:shadow-md"
+          />
+        </div>
+        <div class="mb-5">
+          <label for="birthday" class="mb-3 block text-base font-medium">
+            Birthday
+          </label>
+          <input
+            type="date"
+            name="birthday"
+            id="birthday"
+            class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-indigo-500 focus:shadow-md"
+          />
+        </div>
+        <div class="mb-5">
+          <label for="phone" class="mb-3 block text-base font-medium">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Phone Number"
+            class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-indigo-500 focus:shadow-md"
+          />
+        </div>
+        <div>
+          <button
+            class="hover:shadow-form w-full rounded-md outline outline-white py-3 px-8 text-base font-semibold text-white outline-none">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
