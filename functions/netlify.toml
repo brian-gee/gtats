@@ -1,4 +1,4 @@
-# vercel.toml
+# netlify.toml
 
 [build]
   command = "pnpm run build"
