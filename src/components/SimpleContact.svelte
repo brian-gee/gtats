@@ -25,7 +25,7 @@
         GET IN TOUCH
       </p>
       <!-- FORM BEGIN -->
-      <form on:submit={submit}>
+      <form name="contact" netlify on:submit={submit}>
         <div class="md:flex items-center mt-12">
           <div class="w-full md:w-1/2 flex flex-col">
             <label for="name" class="font-semibold leading-none text-gray-300"
