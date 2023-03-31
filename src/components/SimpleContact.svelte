@@ -25,9 +25,10 @@
         GET IN TOUCH
       </p>
       <!-- FORM BEGIN -->
-      <form name="contact" netlify on:submit={submit}>
+      <form name="contact" method="POST" data-netlify="true">
         <div class="md:flex items-center mt-12">
           <div class="w-full md:w-1/2 flex flex-col">
+            <input type="hidden" name="subject" value="New email for GTATS" />
             <label for="name" class="font-semibold leading-none text-gray-300"
               >Name</label
             >
