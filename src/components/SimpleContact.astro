@@ -1,3 +1,20 @@
+---
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get('name');
+    const phone = data.get('phone');
+    const email = data.get('email');
+    const msg = data.get('msg');
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
 <div id="contact" class="w-full h-screen">
   <div class="h-96"></div>
   <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-10">
@@ -41,15 +58,14 @@
         </div>
         <div class="md:flex items-center mt-8">
           <div class="w-full flex flex-col">
-            <label
-              for="subject"
-              class="font-semibold leading-none text-gray-300">Subject</label
+            <label for="email" class="font-semibold leading-none text-gray-300"
+              >Email</label
             >
             <input
               required
-              type="text"
-              id="subject"
-              name="subject"
+              type="email"
+              id="email"
+              name="email"
               class="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 rounded"
             />
           </div>
