@@ -6,7 +6,12 @@
         GET IN TOUCH
       </p>
       <!-- FORM BEGIN -->
-      <form name="contact" method="POST" data-netlify="true" onSubmit="submit">
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
         <div class="md:flex items-center mt-12">
           <div class="w-full md:w-1/2 flex flex-col">
             <label for="name" class="font-semibold leading-none text-gray-300"
