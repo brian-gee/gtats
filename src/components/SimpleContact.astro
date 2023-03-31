@@ -10,7 +10,8 @@
         class="contact-form"
         name="contact"
         method="POST"
-        data-netlify="true">
+        data-netlify="true"
+        netlify>
         <input type="hidden" name="form-name" value="contact" />
         <div class="md:flex items-center mt-12">
           <div class="w-full md:w-1/2 flex flex-col">
@@ -74,6 +75,7 @@
             Send message
           </button>
         </div>
+        <div data-netlify-recaptcha="true"></div>
       </form>
     </div>
   </div>
